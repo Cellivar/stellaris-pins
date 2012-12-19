@@ -44,7 +44,7 @@ DigitalIOPin::DigitalIOPin
 {
 	// After base initialization (including enabling the peripheral device)
 	// default to GPIO digital input
-	GPIOPinTypeGPIOInput(this->port, this->pin);
+	ROM_GPIOPinTypeGPIOOutput(this->port, this->pin);
 }
 
 
@@ -56,6 +56,11 @@ DigitalIOPin::DigitalIOPin
  */
 void DigitalIOPin::Write(unsigned char val)
 {
+	if (val != 0)
+	{
+		val = this->pin;
+	}
+
 	GPIOPinWrite(this->port, this->pin, val);
 }
 

@@ -31,6 +31,7 @@
 #include "inc/hw_memmap.h"
 #include "driverlib/gpio.h"
 #include "driverlib/sysctl.h"
+#include "driverlib/rom.h"
 
 class Pin
 {
@@ -40,7 +41,7 @@ public:
 	, unsigned long portAddress
 	, unsigned char pinMask
 	);
-	virtual ~Pin();
+	~Pin();
 
 protected:
 	unsigned long peripherial;

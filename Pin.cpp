@@ -43,7 +43,7 @@ Pin::Pin
 	pin = pinMask;
 
 	// Enable the peripherial
-	SysCtlPeripheralEnable(peripherial);
+	ROM_SysCtlPeripheralEnable(peripherial);
 
 	// Being a base class we don't know what to do with the actual pins,
 	// so instead we will twiddle our thumbs.
