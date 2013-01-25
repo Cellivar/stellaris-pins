@@ -27,6 +27,34 @@
 #ifndef STELLARIS_PINS_PIN_CHAPMAN_H
 #define STELLARIS_PINS_PIN_CHAPMAN_H
 
+// GPIO peripherial addresses
+#define PERIPH_A	0x20000001
+#define PERIPH_B	0x20000002
+#define PERIPH_C	0x20000004
+#define PERIPH_D	0x20000008
+#define PERIPH_E	0x20000010
+#define PERIPH_F	0x20000020
+
+// GPIO Port addresses
+#define PORTA		0x40004000
+#define PORTB		0x40005000
+#define PORTC		0x40006000
+#define PORTD		0x40007000
+#define PORTE		0x40024000
+#define PORTF		0x40025000
+
+// GPIO Pin masks
+#define PIN0		0x00000001
+#define PIN1		0x00000002
+#define PIN2		0x00000004
+#define PIN3		0x00000008
+#define PIN4		0x00000010
+#define PIN5		0x00000020
+#define PIN6		0x00000040
+#define PIN7		0x00000080
+
+
+
 #include "inc/hw_types.h"
 #include "inc/hw_memmap.h"
 #include "driverlib/gpio.h"
