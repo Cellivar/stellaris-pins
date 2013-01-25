@@ -41,7 +41,6 @@ public:
 	, unsigned long portAddress
 	, unsigned char pinMask
 	);
-	~Pin();
 
 protected:
 	unsigned long peripherial;

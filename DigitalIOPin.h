@@ -40,7 +40,6 @@ public:
 	, unsigned long portAddress
 	, unsigned char pinMask
 	);
-	~DigitalIOPin(void);
 
 	void Write(unsigned char val);
 	int Read(void);

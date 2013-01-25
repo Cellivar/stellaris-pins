@@ -71,7 +71,10 @@ void DigitalIOPin::Write(unsigned char val)
  */
 int DigitalIOPin::Read(void)
 {
-	return (GPIOPinRead(this->port, this->pin) / this->pin);
+	int val = GPIOPinRead(this->port, this->pin);
+	val = val / this->pin;
+	return val;// (this->pin -1));// & 1;
+	//return (GPIOPinRead(this->port, this->pin) / this->pin);
 }
 
 /**
