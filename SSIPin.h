@@ -48,6 +48,8 @@ namespace StellarisPins
 	public:
 		SSIPin(SSI connection, bool isMaster, FRF_MODE mode, int bitRate, 
 			int dataWidth);
+		
+		unsigned char SSIPin::Send(char data);
 
 	private:
 		SSI connection;

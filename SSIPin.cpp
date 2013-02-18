@@ -39,7 +39,6 @@ namespace StellarisPins
 		this->Init(connection, isMaster, mode, bitRate, dataWidth);
 	}
 
-
 	void SSIPin::Init
 		( SSI connection
 		, bool isMaster
@@ -139,5 +138,14 @@ namespace StellarisPins
 		break;
 		}
 	}
+
+	unsigned char SSIPin::Send(char data)
+	{
+		unsigned long retVal;
+		SSIDataPut(this->base, data);
+		SSIDataGet(this->base, &retVal);
+		return (char)retVal;
+	}
+
 
 }
