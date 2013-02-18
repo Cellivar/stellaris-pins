@@ -55,7 +55,6 @@ namespace StellarisPins
 			GPIOPinConfigure(0x00000001);
 			GPIOPinConfigure(0x00000401);
 			GPIOPinTypeUART(PORTA, 0x00000003);
-			UARTFlowControlSet(0x4000C000, 0);
 			break;
 
 		case 1:
@@ -93,7 +92,6 @@ namespace StellarisPins
 			GPIOPinConfigure(0x00031801);
 			GPIOPinConfigure(0x00031C01);
 			GPIOPinTypeUART(PORTD, 0x00000060);
-			UARTFlowControlSet(0x4000E000, 0);
 			break;
 			
 		case 3:
@@ -102,7 +100,6 @@ namespace StellarisPins
 			GPIOPinConfigure(0x00021801);
 			GPIOPinConfigure(0x00021C01);
 			GPIOPinTypeUART(PORTC, 0x00000060);
-			UARTFlowControlSet(0x4000F000, 0);
 			break;
 			
 		case 4:
@@ -111,7 +108,6 @@ namespace StellarisPins
 			GPIOPinConfigure(0x00021001);
 			GPIOPinConfigure(0x00021401);
 			GPIOPinTypeUART(PORTC, 0x00000030);
-			UARTFlowControlSet(0x40010000, 0);
 			break;
 			
 		case 5:
@@ -120,7 +116,6 @@ namespace StellarisPins
 			GPIOPinConfigure(0x00041001);
 			GPIOPinConfigure(0x00041401);
 			GPIOPinTypeUART(PORTE, 0x00000030);
-			UARTFlowControlSet(0x40011000, 0);
 			break;
 			
 		case 6:
@@ -129,7 +124,6 @@ namespace StellarisPins
 			GPIOPinConfigure(0x00031001);
 			GPIOPinConfigure(0x00031401);
 			GPIOPinTypeUART(PORTD, 0x00000030);
-			UARTFlowControlSet(0x40012000, 0);
 			break;
 			
 		case 7:
@@ -138,7 +132,6 @@ namespace StellarisPins
 			GPIOPinConfigure(0x00040001);
 			GPIOPinConfigure(0x00040401);
 			GPIOPinTypeUART(PORTE, 0x00000003);
-			UARTFlowControlSet(0x40013000, 0);
 			break;
 		}
 	}
