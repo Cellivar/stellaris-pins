@@ -27,27 +27,32 @@
 
 #include "Pin.h"
 
-/**
- * Create a pin object based on a peripherial address, the port address and
- * the pin mask. Does not verify inputs (because I'm lazy).
- *
- */
-Pin::Pin
-	( unsigned long periphAddress
-	, unsigned long portAddress
-	, unsigned char pinMask
-	)
+namespace StellarisPins
 {
-	// Set the internal properties
-	peripherial = periphAddress;
-	port = portAddress;
-	pin = pinMask;
 
-	// Enable the peripherial
-	SysCtlPeripheralEnable(peripherial);
+	/**
+	 * Create a pin object based on a peripherial address, the port address and
+	 * the pin mask. Does not verify inputs (because I'm lazy).
+	 *
+	 */
+	Pin::Pin
+		( unsigned long periphAddress
+		, unsigned long portAddress
+		, unsigned char pinMask
+		)
+	{
+		// Set the internal properties
+		peripherial = periphAddress;
+		port = portAddress;
+		pin = pinMask;
 
-	// Being a base class we don't know what to do with the actual pins,
-	// so instead we will twiddle our thumbs.
+		// Enable the peripherial
+		SysCtlPeripheralEnable(peripherial);
 
-	// thumb->twiddle(THUMB_LEFT, THUMB_RIGHT);
+		// Being a base class we don't know what to do with the actual pins,
+		// so instead we will twiddle our thumbs.
+
+		// thumb->twiddle(THUMB_LEFT, THUMB_RIGHT);
+	}
+
 }

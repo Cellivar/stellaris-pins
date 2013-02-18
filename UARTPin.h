@@ -49,7 +49,7 @@ namespace StellarisPins
 
 		void Init(UART connection, bool uartCTS, bool uartRTS);
 
-	}
+	};
 
 
 }

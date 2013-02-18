@@ -27,82 +27,86 @@
 
 #include "DigitalIOPin.h"
 
-
-/**
- * Constructor based off of the base class Pin. Selected pin is initalized
- * as default input.
- *
- * @param[in] periphAddress Peripheral address from sysctl.h
- * @param[in] portAddress GPIO port address from hw_memmap.h
- * @param[in] pinMask GPIO pin from gpio.h
- */
-DigitalIOPin::DigitalIOPin
-	( unsigned long periphAddress
-	, unsigned long portAddress
-	, unsigned char pinMask
-	)
-	: Pin(periphAddress, portAddress, pinMask)
+namespace StellarisPins
 {
-	// After base initialization (including enabling the peripheral device)
-	// default to GPIO digital input
-	GPIOPinTypeGPIOOutput(this->port, this->pin);
-}
 
-
-/**
- * Write a value to this pin. Writing to a pin configured as an input pin has no
- * effect.
- *
- * @param[in] val Write value to this pin
- */
-void DigitalIOPin::Write(unsigned char val)
-{
-	if (val != 0)
+	/**
+	 * Constructor based off of the base class Pin. Selected pin is initalized
+	 * as default input.
+	 *
+	 * @param[in] periphAddress Peripheral address from sysctl.h
+	 * @param[in] portAddress GPIO port address from hw_memmap.h
+	 * @param[in] pinMask GPIO pin from gpio.h
+	 */
+	DigitalIOPin::DigitalIOPin
+		( unsigned long periphAddress
+		, unsigned long portAddress
+		, unsigned char pinMask
+		)
+		: Pin(periphAddress, portAddress, pinMask)
 	{
-		val = this->pin;
+		// After base initialization (including enabling the peripheral device)
+		// default to GPIO digital input
+		GPIOPinTypeGPIOOutput(this->port, this->pin);
 	}
 
-	GPIOPinWrite(this->port, this->pin, val);
-}
 
-/**
- * Read a value from this pin. Both input and output pins are read.
- *
- * @param[out] int Value of the pin
- */
-int DigitalIOPin::Read(void)
-{
-	int val = GPIOPinRead(this->port, this->pin);
-	val = val / this->pin;
-	return val;// (this->pin -1));// & 1;
-	//return (GPIOPinRead(this->port, this->pin) / this->pin);
-}
+	/**
+	 * Write a value to this pin. Writing to a pin configured as an input pin has no
+	 * effect.
+	 *
+	 * @param[in] val Write value to this pin
+	 */
+	void DigitalIOPin::Write(unsigned char val)
+	{
+		if (val != 0)
+		{
+			val = this->pin;
+		}
 
-/**
- * Set pin mode to input
- */
-void DigitalIOPin::Input(void)
-{
-	GPIODirModeSet(this->port, this->pin, GPIO_DIR_MODE_IN);
-}
+		GPIOPinWrite(this->port, this->pin, val);
+	}
 
-/**
- * Set pin mode to output
- */
-void DigitalIOPin::Output(void)
-{
-	GPIODirModeSet(this->port, this->pin, GPIO_DIR_MODE_OUT);
-}
+	/**
+	 * Read a value from this pin. Both input and output pins are read.
+	 *
+	 * @param[out] int Value of the pin
+	 */
+	int DigitalIOPin::Read(void)
+	{
+		int val = GPIOPinRead(this->port, this->pin);
+		val = val / this->pin;
+		return val;// (this->pin -1));// & 1;
+		//return (GPIOPinRead(this->port, this->pin) / this->pin);
+	}
 
-/**
- * Set pull mode and strength of the pin.
- *
- * Parameters are located in the GPIOPadConfigSet documentation
- *
- * @param mode ulPinType setting
- * @param strength ulStrength setting
- */
-void DigitalIOPin::PullMode(unsigned long strength, unsigned long mode)
-{
-	GPIOPadConfigSet(this->port, this->pin, strength, mode);
+	/**
+	 * Set pin mode to input
+	 */
+	void DigitalIOPin::Input(void)
+	{
+		GPIODirModeSet(this->port, this->pin, GPIO_DIR_MODE_IN);
+	}
+
+	/**
+	 * Set pin mode to output
+	 */
+	void DigitalIOPin::Output(void)
+	{
+		GPIODirModeSet(this->port, this->pin, GPIO_DIR_MODE_OUT);
+	}
+
+	/**
+	 * Set pull mode and strength of the pin.
+	 *
+	 * Parameters are located in the GPIOPadConfigSet documentation
+	 *
+	 * @param mode ulPinType setting
+	 * @param strength ulStrength setting
+	 */
+	void DigitalIOPin::PullMode(unsigned long strength, unsigned long mode)
+	{
+		GPIOPadConfigSet(this->port, this->pin, strength, mode);
+	}
+
 }

@@ -62,20 +62,24 @@
 #include "driverlib/sysctl.h"
 #include "driverlib/rom.h"
 
-class Pin
+namespace StellarisPins
 {
-public:
-	Pin
-	( unsigned long periphAddress
-	, unsigned long portAddress
-	, unsigned char pinMask
-	);
 
-protected:
-	unsigned long peripherial;
-	unsigned long port;
-	unsigned char pin;
-};
+	class Pin
+	{
+	public:
+		Pin
+		( unsigned long periphAddress
+		, unsigned long portAddress
+		, unsigned char pinMask
+		);
 
+	protected:
+		unsigned long peripherial;
+		unsigned long port;
+		unsigned char pin;
+	};
+
+}
 
 #endif // STELLARIS_PINS_PIN_CHAPMAN_H

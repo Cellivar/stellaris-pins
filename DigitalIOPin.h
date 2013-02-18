@@ -31,24 +31,27 @@
 
 #include "pin.h"
 
-
-class DigitalIOPin :
-	public Pin
+namespace StellarisPins
 {
-public:
-	DigitalIOPin
-	( unsigned long periphAddress
-	, unsigned long portAddress
-	, unsigned char pinMask
-	);
 
-	void Write(unsigned char val);
-	int Read(void);
+	class DigitalIOPin :
+		public Pin
+	{
+	public:
+		DigitalIOPin
+		( unsigned long periphAddress
+		, unsigned long portAddress
+		, unsigned char pinMask
+		);
 
-	void Input(void);
-	void Output(void);
+		void Write(unsigned char val);
+		int Read(void);
 
-	void PullMode(unsigned long strength, unsigned long mode);
-};
+		void Input(void);
+		void Output(void);
+
+		void PullMode(unsigned long strength, unsigned long mode);
+	};
+}
 
 #endif // STELLARIS_PINS_DIGITALIOPIN_CHAPMAN_H
